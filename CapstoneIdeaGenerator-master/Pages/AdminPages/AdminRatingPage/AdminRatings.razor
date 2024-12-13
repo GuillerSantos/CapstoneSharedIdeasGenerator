@@ -1,0 +1,32 @@
+﻿@page "/adminratings"
+@inherits AdminRatingsBase
+@layout AdminLayout
+@attribute [Authorize(Roles = "Admin")]
+
+
+    <MudGrid Class="pt-20 ms-1" Justify="Justify.Center">
+        <MudContainer>
+            <MudText Style="font-weight: bold; font-size: 30px">Rating View</MudText>
+
+        <MudTable Items="Ratings" Striped="true" Hover="true" Height="100%" Style="width: 100%" FixedHeader="true" Bordered="true">
+                <HeaderContent>
+                    <MudTh>Rating ID</MudTh>
+                    <MudTh>Capstone ID</MudTh>
+                    <MudTh>User Code Tracker</MudTh>
+                    <MudTh>Title</MudTh>
+                    <MudTh>Rated On</MudTh>
+                    <MudTh>Ratings</MudTh>
+                </HeaderContent>
+                <RowTemplate>
+                    <MudTd DataLabel="RId">@context.RatingId</MudTd>
+                    <MudTd DataLabel="CId">@context.CapstoneId</MudTd>
+                    <MudTd DataLabel="UId">@context.UserId</MudTd>
+                    <MudTd DataLabel="Title">@context.Title</MudTd>
+                    <MudTd DataLabel="Rated On">@context.RatedOn</MudTd>
+                    <MudTd>
+                        <MudRating SelectedValue="@context.RatingValue" MaxValue="5" ReadOnly="true" Size="Size.Small" Color="Color.Warning"></MudRating>
+                    </MudTd>
+                </RowTemplate>
+            </MudTable>
+        </MudContainer>
+    </MudGrid>

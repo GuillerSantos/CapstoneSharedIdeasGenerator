@@ -1,0 +1,50 @@
+﻿@page "/dashboard"
+@inherits DashboardBase
+@layout AdminLayout
+@attribute [Authorize(Roles = "Admin")]
+
+<MudGrid Class="pt-20" Justify="Justify.Center">
+    <MudItem Class="col-lg-12 row gap-4 justify-content-center">
+        <MudPaper Class="col-lg-4" Style="height: 400px; width: 510px" Elevation="20">
+            <MudContainer Class="text-center">
+                <MudText Class="mt-5 fs-4 fw-bolder">Analytics Overview</MudText>
+            </MudContainer>
+
+            <MudContainer Class="text-center">
+                <MudChart ChartType="ChartType.Line" ChartSeries="@Series" @bind-SelectedIndex="Index" XAxisLabels="@XAxisLabels" Width="100%" Height="300px" ChartOptions="@Options" />
+                <!-- <MudSlider @bind-Value="Options.LineStrokeWidth" Min="1" Max="10" Color="Color.Info">@Options.LineStrokeWidth.ToString()</MudSlider> -->
+            </MudContainer>
+        </MudPaper>
+
+        <MudPaper Class="col-lg-8" Style="height: 400px; width: 630px" Elevation="20">
+            <MudStack AlignItems="AlignItems.Center" Style="width: 100%; height: 390px">
+                <MudDateRangePicker @ref="dateRangePickerRef" PickerVariant="variant" @bind-DateRange="@dateRange" Margin="Margin.Dense" />
+            </MudStack>
+        </MudPaper>
+        @if (isLoading)
+        {
+            <Loader></Loader>
+        }
+        else
+        {
+            <MudContainer Class="text-center">
+                <MudText Class="mt-5 fs-6 fw-bolder">Activity Logs</MudText>
+            </MudContainer>
+
+            <MudTable Class="mb-5" Items="activityLogs" Hover="true" Height="220px" Style="width: 100%" FixedHeader="true" Elevation="20" Bordered="true">
+                <HeaderContent>
+                    <MudTh>Actions</MudTh>
+                    <MudTh>Details</MudTh>
+                    <MudTh>Timestamps</MudTh>
+                </HeaderContent>
+                <RowTemplate>
+                    <MudTd DataLabel="Action">@context.Action</MudTd>
+                    <MudTd DataLabel="Detail">@context.Details</MudTd>
+                    <MudTd DataLabel="Timestamp">@context.Timestamp</MudTd>
+                </RowTemplate>
+            </MudTable>
+
+        }
+
+    </MudItem>
+</MudGrid>

@@ -1,0 +1,58 @@
+﻿@inherits LayoutComponentBase
+@attribute [Authorize(Roles = "Admin")]
+
+
+<MudThemeProvider @bind-IsDarkMode="@isDarkMode" Theme="MyCustomTheme" />
+<MudDialogProvider />
+<MudSnackbarProvider />
+<MudPopoverProvider />
+
+<MudGrid Justify="Justify.Center">
+    <MudAppBar Style="background-color: rgb(133,15,225); z-index: 100" Elevation="20">
+        <MudContainer Class="d-none d-sm-flex justify-content-start">
+            <MudButton Class="btn-appbar-menu m-3" Style="height: 40px; width: 100px; color: white" Href="/dashboard">Dashboard</MudButton>
+            <MudButton Class="btn-appbar-menu m-3" Style="height: 40px; width: 100px; color: white" Href="/capstone">Capstones</MudButton>
+            <MudButton Class="btn-appbar-menu m-3" Style="height: 40px; width: 100px; color: white" Href="/account">Account</MudButton>
+            <MudButton Class="btn-appbar-menu m-3" Style="height: 40px; width: 100px; color: white" Href="/adminratings">Ratings</MudButton>
+            <MudToggleIconButton @bind-Toggled="@isDarkMode"
+                                 Icon="@Icons.Material.Filled.DarkMode"
+                                 Color=" Color.Dark"
+                                 ToggledIcon="@Icons.Material.Filled.WbSunny"
+                                 ToggledColor="Color.Inherit" />
+        </MudContainer>
+
+        <MudIconButton Icon="@Icons.Material.Filled.Menu" Color="Color.Inherit" OnClick="@ToggleDrawer" Edge="Edge.End" Class="d-md-none" />
+
+        <MudContainer Class="d-none d-md-flex justify-content-end">
+            <MudIconButton Class="btn-appbar-menu fs-4 fw-bolder" Style="color: white" Variant="Variant.Outlined" Color="Color.Error" OnClick="Logout">
+                Logout
+                <MudIcon Icon="@Icons.Material.Filled.Logout" />
+            </MudIconButton>
+        </MudContainer>
+    </MudAppBar>
+
+    <MudDrawer Class="d-md-none" @bind-Open="drawerOpen" Color="Color.Dark" ClipMode="DrawerClipMode.Never" Anchor="Anchor.Right" Elevation="3">
+        <MudContainer Class="d-grid gap-5">
+            <MudContainer Class="d-grid row-cols-8 pt-5 ms-6">
+                <MudButton Class="btn-appbar-menu m-2" Style="color: white" Href="/dashboard">Dashboard</MudButton>
+                <MudButton Class="btn-appbar-menu m-2" Style="color: white" Href="/capstone">Capstones</MudButton>
+                <MudButton Class="btn-appbar-menu m-2" Style="color: white" Href="/account">Account</MudButton>
+                <MudButton Class="btn-appbar-menu m-2" Style="color: white" Href="/adminratings">Ratings</MudButton>
+                <MudIconButton Class="btn-appbar-menu m-2 fs-4 fw-bolder" Style="color: orangered;" OnClick="Logout">
+                    Logout
+                    <MudIcon Icon="@Icons.Material.Filled.Logout" />
+                </MudIconButton>
+
+                <MudToggleIconButton @bind-Toggled="@isDarkMode"
+                                     Icon="@Icons.Material.Filled.DarkMode"
+                                     Color=" Color.Primary"
+                                     ToggledIcon="@Icons.Material.Filled.WbSunny"
+                                     ToggledColor="Color.Inherit" />
+            </MudContainer>
+        </MudContainer>
+    </MudDrawer>
+
+    <MudContainer Class="ms-1 pt-8" MaxWidth="MaxWidth.ExtraLarge">
+        @Body
+    </MudContainer>
+</MudGrid>

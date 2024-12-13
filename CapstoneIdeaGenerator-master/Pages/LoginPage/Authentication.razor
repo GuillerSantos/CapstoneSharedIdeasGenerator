@@ -1,0 +1,48 @@
+﻿@page "/authentication"
+@inject NavigationManager Navigation
+@inherits AuthenticationBase
+@inject CustomAuthStateProvider CustomAuthStateProvider
+
+
+@if (isLoading)
+{
+    <Loader />
+}
+else
+{
+    <MudLayout>
+        <MudContainer>
+            <MudContainer Class="d-flex" Style="margin-right: 100%">
+                <MudContainer Class="d-flex justify-content-center pt-18">
+                    <MudPaper Elevation="5" Style="width: 500px; height: 490px;">
+                        <MudContainer>
+                            <MudCard Class="mt-20" Elevation="10">
+                                <MudCardContent>
+                                    <MudText Style="font-weight: bolder; margin: 4px;" Typo="Typo.h5">Admin Login</MudText>
+
+                                    <MudTextField Class="mb-5" T="string" Label="Username" @bind-Value="login.Email" Variant="Variant.Outlined" FullWidth
+                                                  For="@(() => login.Email)" InputType="InputType.Text" />
+                                    <MudTextField Class="mb-5" T="string" Label="Password" @bind-Value="login.Password" Variant="Variant.Outlined" FullWidth
+                                                  Adornment="Adornment.End" InputType="@showPasswordUtil.InputType" AdornmentIcon="@showPasswordUtil.Icon" OnAdornmentClick="ShowPasswordClick"
+                                                  AdornmentAriaLabel="Show Password" For="@(() => login.Password)" />
+
+                                    @if (!string.IsNullOrEmpty(responseMessage))
+                                    {
+                                        <MudAlert Severity="Severity.Error" Dense="true">@responseMessage</MudAlert>
+                                    }
+
+                                    <MudButton Class="mt-4 mb-5" Style="height: 50px" Variant="Variant.Filled" Color="Color.Primary" FullWidth OnClick="LoginOnClick">Login</MudButton>
+                                    <MudLink OnClick="() => OpenForgotPasswordDialog()">Forgot Password?</MudLink>
+                                </MudCardContent>
+                            </MudCard>
+                        </MudContainer>
+                    </MudPaper>
+                </MudContainer>
+
+                <MudContainer Class="d-flex d-md-flex pt-12">
+                    <MudImage Src="Images/AdminLogin.svg" Class="d-none d-md-block" Style="width: 500px; height: 500px; background-color: transparent;"></MudImage>
+                </MudContainer>
+            </MudContainer>
+        </MudContainer>
+    </MudLayout>
+}

@@ -1,0 +1,110 @@
+﻿@inherits LayoutComponentBase
+@inject NavigationManager NavigationManager
+
+<MudThemeProvider @bind-IsDarkMode="@isDarkMode" Theme="MyCustomTheme" />
+<MudDialogProvider />
+<MudSnackbarProvider />
+<MudPopoverProvider />
+
+<MudGrid Justify="Justify.Center">
+    <MudContainer>
+        <MudAppBar Class="justify-content-center" Style="background-color: rgb(133,15,225); z-index: 100" Elevation="20">
+
+            <MudContainer Class="d-none d-md-flex justify-content-start">
+                <MudButton Class="btn-appbar-menu m-3" Style="height: 40px; width: 50px; color: white" Href="/home">Home</MudButton>
+                <MudButton Class="btn-appbar-menu m-3" Style="height: 40px; width: 50px; color: white" Href="/about">About</MudButton>
+                <MudButton Class="btn-appbar-menu m-3" Style="height: 40px; width: 100px; color: white" Href="/generator">Generator</MudButton>
+                <MudButton Class="btn-appbar-menu m-3" Style="height: 40px; width: 100px; color: white" Href="/ratings">Ratings</MudButton>
+                <MudToggleIconButton Class="m-3" @bind-Toggled="@isDarkMode"
+                Icon="@Icons.Material.Filled.DarkMode"
+                Color=" Color.Dark"
+                ToggledIcon="@Icons.Material.Filled.WbSunny"
+                ToggledColor="Color.Inherit" />
+            </MudContainer>
+
+            <MudIconButton Icon="@Icons.Material.Filled.Menu" Color="Color.Inherit" OnClick="@ToggleDrawer" Edge="Edge.End" Class="d-md-none" />
+
+            <MudContainer Class="d-none d-md-flex justify-content-end">
+                <MudButton Class="btn-appbar-menu m-3" Style="height: 40px; width: 50px; color: white" Color="Color.Info" Variant="Variant.Outlined" Href="/authentication">Login</MudButton>
+            </MudContainer>
+        </MudAppBar>
+
+        <MudDrawer Class="d-md-none" @bind-Open="drawerOpen" Color="Color.Dark" ClipMode="DrawerClipMode.Never" Anchor="Anchor.Right" Elevation="3">
+            <MudContainer Class="d-grid gap-5">
+                <MudContainer Class="d-grid row-cols-8 pt-5 ms-6">
+                    <MudButton Class="btn-appbar-menu m-2" Style="color: white" Href="/home">Home</MudButton>
+                    <MudButton Class="btn-appbar-menu m-2" Style="color: white" Href="/about">About</MudButton>
+                    <MudButton Class="btn-appbar-menu m-2" Style="color: white" Href="/generator">Generator</MudButton>
+                    <MudButton Class="btn-appbar-menu m-2" Style="color: white" Href="/ratings">Ratings</MudButton>
+                    <MudButton Class="btn-appbar-menu m-2" Style="color: white" Href="/authentication">Login</MudButton>
+                    <MudToggleIconButton @bind-Toggled="@isDarkMode"
+                                         Icon="@Icons.Material.Filled.DarkMode"
+                                         Color=" Color.Primary"
+                                         ToggledIcon="@Icons.Material.Filled.WbSunny"
+                                         ToggledColor="Color.Inherit" />
+                </MudContainer>
+                <MudContainer Class="gap-5 ms-4">
+                    <MudIconButton Class="me-2" Color="Color.Inherit" Icon="@Icons.Custom.Brands.Facebook" Variant="Variant.Outlined" Link="https://www.facebook.com/guillersantos23" Target="_blank" />
+                    <MudIconButton Class="me-2" Color="Color.Inherit" Icon="@Icons.Custom.Brands.LinkedIn" Variant="Variant.Outlined" Target="_blank" />
+                    <MudIconButton Class="me-2" Color="Color.Inherit" Icon="@Icons.Custom.Brands.GitHub" Variant="Variant.Outlined" Link="https://github.com/guillersantos111" Target="_blank" />
+                </MudContainer>
+            </MudContainer>
+        </MudDrawer>
+    </MudContainer>
+
+    <MudContainer MaxWidth="MaxWidth.ExtraLarge" Class="pt-8 ms-6">
+        @Body
+    </MudContainer>
+
+    <MudContainer Style="background-color: transparent; position: fixed; bottom: 0; left: 0; width: 100%; z-index: 100;">
+        <MudContainer Class="d-flex gap-4">
+            <MudText Style="font-size: 10px; font-weight: bolder;">
+                <MudImage Src="Images/icons8-bootstrap-48.png" Style="height: 19px; width: 19px;" />
+                Bootstrap
+            </MudText>
+
+            <MudText Style="color: limegreen; font-size: 13px; font-weight: bolder">C#</MudText>
+
+            <MudText Style="font-size: 10px; font-weight: bolder;">
+                <MudIcon Icon="@Icons.Custom.Brands.MudBlazor" Color="Color.Primary" Style="height:18px; width: 18px;" />MudBlazor
+            </MudText>
+
+            <MudText Style="font-size: 10px; font-weight: bolder;">
+                <MudIcon Icon="@Icons.Custom.Brands.Microsoft" Color="Color.Success" Style="height:18px; width: 18px;" />.NET
+            </MudText>
+        </MudContainer>
+        <MudContainer>
+            <MudText Class="position-absolute bottom-0 end-0 me-9" Style="font-size: 10px; font-weight: bolder;">
+                Developed By: Guiller Santos
+            </MudText>
+        </MudContainer>
+    </MudContainer>
+
+</MudGrid>
+
+@code {
+
+    private bool drawerOpen = false;
+
+    private bool isDarkMode;
+
+    private void ToggleDrawer()
+    {
+        drawerOpen = !drawerOpen;
+    }
+
+    MudTheme MyCustomTheme = new MudTheme()
+        {
+            PaletteLight = new PaletteLight()
+            {
+                Primary = Colors.DeepPurple.Darken2,
+                Secondary = Colors.Green.Accent4
+            },
+
+            PaletteDark = new PaletteDark()
+            {
+                Primary = Colors.DeepPurple.Darken2,
+                Secondary = Colors.Green.Accent4
+            }
+        };
+}

@@ -1,0 +1,57 @@
+﻿@page "/capstone"
+@layout AdminLayout
+@inherits CapstoneBase
+@attribute [Authorize(Roles = "Admin")]
+
+<MudGrid Class="mt-20" Justify="Justify.Center">
+    <MudPaper Class="ms-15 responsive-container" Elevation="20">
+        <MudButton Class="fs-5 fw-bold responsive-button" OnClick="() => AddCapstone()">
+            <MudIcon Style="height: 40px; width: 40px" Icon="@Icons.Material.Filled.Add" Color="Color.Success"></MudIcon>
+            Add New Capstone
+        </MudButton>
+        <MudContainer Class="d-flex flex-wrap gap-4 mb-5 w-100">
+            <MudTextField Class="responsive-input"
+                          @bind-Value="SearchQuery"
+                          Label="Search Capstones"
+                          Variant="Variant.Outlined"
+                          Adornment="Adornment.End"
+                          AdornmentIcon="@Icons.Material.Filled.Search"
+                          AdornmentColor="Color.Primary"
+                          Immediate="true"
+                          Placeholder="Search" />
+
+            <MudButton Class="responsive-button mt-2 ms-4" Style="height: 55px; width: 230px" OnClick="() => SearchCapstones(SearchQuery)" Color="Color.Primary" Variant="Variant.Filled">
+                Search
+            </MudButton>
+        </MudContainer>
+
+        <MudTable Elevation="20" Items="FilteredCapstones" Striped="true" Hover="true" FixedHeader="true" Bordered="true">
+            <HeaderContent>
+                <MudTh>Titles</MudTh>
+                <MudTh>Descriptions</MudTh>
+                <MudTh>Created By</MudTh>
+                <MudTh>Programming Languages</MudTh>
+                <MudTh>Databases</MudTh>
+                <MudTh>Frameworks</MudTh>
+                <MudTh>Actions</MudTh>
+            </HeaderContent>
+            <RowTemplate>
+                <MudTd DataLabel="Title">@context.Title</MudTd>
+                <MudTd DataLabel="Descriptions">@context.Description</MudTd>
+                <MudTd DataLabel="Created By">@context.CreatedBy</MudTd>
+                <MudTd DataLabel="Prog Language">@context.ProgLanguages</MudTd>
+                <MudTd DataLabel="Database">@context.Databases</MudTd>
+                <MudTd DataLabel="Framework">@context.Frameworks</MudTd>
+                <MudTd>
+                    <MudIconButton Icon="@Icons.Material.Filled.Edit" Color="Color.Success" OnClick="() => UpdateCapstone(context)" />
+                    <MudIconButton Icon="@Icons.Material.Filled.Delete" Color="Color.Error" OnClick="() => RemoveCapstone(context.CapstoneId)" />
+                </MudTd>
+            </RowTemplate>
+            <NoRecordsContent>
+                <MudContainer>
+                    <MudText Typo="Typo.body2" Align="Align.Center">No capstone projects found.</MudText>
+                </MudContainer>
+            </NoRecordsContent>
+        </MudTable>
+    </MudPaper>
+</MudGrid>

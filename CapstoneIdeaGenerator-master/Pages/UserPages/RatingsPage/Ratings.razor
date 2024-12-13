@@ -1,0 +1,30 @@
+﻿@page "/ratings"
+@inherits RatingsBase
+@layout UserLayout
+
+@if (isLoading)
+{
+    <Loader></Loader>
+}
+else
+{
+    <MudContainer Class="d-flex justify-content-center pt-15 ">
+        <MudContainer>
+            <MudText Class="fs-4 fw-bolder">
+                Capstone Ideas Ratings
+            </MudText>
+            <MudTable Style="width: 100%;" Height="100%" Items="Ratings" Striped="true" Hover="true" FixedHeader="true" Elevation="20" Bordered="true" Class="table-responsive-sm">
+                <HeaderContent>
+                    <MudTh>Title</MudTh>
+                    <MudTh>Ratings</MudTh>
+                </HeaderContent>
+                <RowTemplate>
+                    <MudTd DataLabel="Title">@context.Title</MudTd>
+                    <MudTd DataLabel="Stars">
+                        <MudRating SelectedValue="@context.RatingValue" MaxValue="5" ReadOnly="true" Size="Size.Small" Color="Color.Warning"></MudRating>
+                    </MudTd>
+                </RowTemplate>
+            </MudTable>
+        </MudContainer>
+    </MudContainer>
+}

@@ -1,0 +1,68 @@
+﻿@page "/account"
+@layout AdminLayout
+@inherits AccountBase
+@attribute [Authorize(Roles = "Admin")]
+
+<MudGrid Justify="Justify.Center">
+    <MudText Class="pt-20 fw-bolder" Typo="Typo.h4">Manage Accounts</MudText>
+
+    <MudItem Class="col-lg-12 row g-2 justify-content-center">
+        <MudPaper Class="col-lg-4 me-6 mb-6" Elevation="5" Style="height: 650px; width: 100%; max-width: 400px">
+            <MudContainer Class="text-center mt-2">
+                <MudText Typo="Typo.h6">Create Admin Account</MudText>
+            </MudContainer>
+
+            <MudContainer Class="px-4 mt-4">
+                <MudForm @ref="form" Validated="OnValidated">
+                    <MudTextField T="string" Label="Name" @bind-Value="adminRegister.Name" Required="true" />
+                    <MudSelect T="string" Label="Gender" @bind-Value="adminRegister.Gender" Required="true">
+                        <MudSelectItem Value=@("Male")>Male</MudSelectItem>
+                        <MudSelectItem Value="@("Female")">Female</MudSelectItem>
+                        <MudSelectItem Value=@("Other")>Other</MudSelectItem>
+                    </MudSelect>
+                    <MudTextField T="int" Label="Age" @bind-Value="adminRegister.Age" MaxLength="3" Required="true" />
+                    <MudTextField T="string" Label="Email" @bind-Value="adminRegister.Email" Required="true" />
+                    <MudTextField T="string" Label="Password" @bind-Value="adminRegister.Password"
+                                  InputType="@showPassword.InputType"
+                                  Required="true" />
+                    <MudTextField T="string" Label="Confirm Password" @bind-Value="adminRegister.ConfirmPassword"
+                                  Adornment="Adornment.End"
+                                  AdornmentIcon="@showPassword.Icon"
+                                  OnAdornmentClick="ShowPassword"
+                                  AdornmentAriaLabel="Toggle Password Visibility"
+                                  InputType="@showPassword.InputType" Required="true" />
+
+                    <MudButton Class="mt-15" Style="height: 50px; background-color: rgb(133,15,225); color:white"
+                               Variant="Variant.Filled" Disabled="@isLoading" OnClick="RegisterOnClick">
+                        Create Account
+                    </MudButton>
+                </MudForm>
+            </MudContainer>
+        </MudPaper>
+
+        <MudPaper Class="col-lg-8" Elevation="5" Style="max-height: 650px; min-width: 400px; width: 700px;">
+            <MudContainer>
+                <MudTable Class="table-responsive mt-4" Items="Admins" Striped="true" Hover="true" Bordered="true">
+                    <HeaderContent>
+                        <MudTh>Name</MudTh>
+                        <MudTh>Email</MudTh>
+                        <MudTh>Gender</MudTh>
+                        <MudTh>Age</MudTh>
+                        <MudTh>Date Joined</MudTh>
+                        <MudTh>Actions</MudTh>
+                    </HeaderContent>
+                    <RowTemplate>
+                        <MudTd DataLabel="Name">@context.Name</MudTd>
+                        <MudTd DataLabel="Email">@context.Email</MudTd>
+                        <MudTd DataLabel="Gender">@context.Gender</MudTd>
+                        <MudTd DataLabel="Age">@context.Age</MudTd>
+                        <MudTd DataLabel="Date Joined">@context.DateJoined.ToString("yyyy-MM-dd")</MudTd>
+                        <MudTh>
+                            <MudIconButton Icon="@Icons.Material.Filled.Remove" Color="Color.Success" OnClick="() => RemoveAccount(context.Email)" />
+                        </MudTh>
+                    </RowTemplate>
+                </MudTable>
+            </MudContainer>
+        </MudPaper>
+    </MudItem>
+</MudGrid>

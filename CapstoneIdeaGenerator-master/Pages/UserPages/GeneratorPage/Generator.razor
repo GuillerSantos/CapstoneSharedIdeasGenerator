@@ -1,0 +1,105 @@
+﻿@page "/generator"
+@inherits GeneratorBase
+@layout UserLayout
+
+
+@if (isLoading)
+{
+    <Loader />
+}
+else
+{
+    <MudGrid Class="mb-4">
+        <MudContainer Class="text-center mt-10 ms-md-6">
+            <MudText Class="ps-4 mb-2 mt-13 fs-3 fw-bolder">
+                Capstone Shared Ideas Generator
+            </MudText>
+            <MudText Class="fs-5">
+                Discover your next Capstone Ideas!
+            </MudText>
+        </MudContainer>
+
+        <MudItem Class="col-12 col-md-6 d-flex justify-content-center mb-4">
+            <MudPaper Style="height: auto; width: 100%; max-height: 630px; max-width: 510px; min-height: 480px" Elevation="20">
+                <MudContainer Class="text-center">
+                    <MudContainer>
+                        <MudText Class="mt-5 fs-4">Filter</MudText>
+                    </MudContainer>
+                </MudContainer>
+
+                <MudContainer Class="text-center">
+                    <MudContainer>
+                        <MudSelect @bind-Value="selectedCategory" Class="p-4 mb-4" T="string" Label="Select Industry" AnchorOrigin="Origin.BottomCenter" Style="width: 100%; max-width: 400px;">
+                            @foreach (var category in categories)
+                            {
+                                <MudSelectItem Value="@category">@category</MudSelectItem>
+                            }
+                        </MudSelect>
+
+                        <MudSelect @bind-Value="selectedProjectType" Class="p-4 mb-4" T="string" Label="Select Project Type" AnchorOrigin="Origin.BottomCenter" Style="width: 100%; max-width: 400px;">
+                            @foreach (var projectType in projectTypes)
+                            {
+                                <MudSelectItem Value="@projectType">@projectType</MudSelectItem>
+                            }
+                        </MudSelect>
+                    </MudContainer>
+
+                    <MudButton Class="btn-generate" OnClick="GenerateIdea">
+                        GENERATE HERE!
+                        <div class="moving-icon-container m-3">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="animated-icon">
+                                <path d="m21.64 3.64-1.28-1.28a1.21 1.21 0 0 0-1.72 0L2.36 18.64a1.21 1.21 0 0 0 0 1.72l1.28 1.28a1.2 1.2 0 0 0 1.72 0L21.64 5.36a1.2 1.2 0 0 0 0-1.72"></path>
+                                <path d="m14 7 3 3"></path>
+                                <path d="M5 6v4"></path>
+                                <path d="M19 14v4"></path>
+                                <path d="M10 2v2"></path>
+                                <path d="M7 8H3"></path>
+                                <path d="M21 16h-4"></path>
+                                <path d="M11 3H9"></path>
+                            </svg>
+                        </div>
+                    </MudButton>
+                </MudContainer>
+            </MudPaper>
+        </MudItem>
+
+        <MudItem Class="col-12 col-md-6 d-flex justify-content-center mb-4">
+            <MudPaper Style="height: auto; width: 100%; max-width: 630px; min-height: 480px" Elevation="20">
+                @if (isGenerated)
+                {
+                    <MudContainer Class="mt-5">
+                        <MudContainer>
+                            <MudText Class="mb-3 fw-bolder" Typo="Typo.h5">@generatedCapstone?.Title</MudText>
+                            <MudText Class="text-opacity-25 fs-6 mb-2 mt-5" Style="color: darkgray;">@generatedCapstone?.Description</MudText>
+                        </MudContainer>
+                    </MudContainer>
+
+                    <MudContainer Class="mt-10 mb-5">
+                        <MudContainer Class="d-flex d-md-flex" Style="color: White;">
+                            <MudText Style="height: 20px; min-width: 100px; max-width: 100%; font-size: 15px; font-weight: bolder; text-align: center; background-color: forestgreen; border-radius: 50px; margin: 7px">@generatedCapstone?.ProgLanguages</MudText>
+                            <MudText Style="height: 20px; min-width: 100px; max-width: 100%; font-size: 15px; font-weight: bolder; text-align: center; background-color: forestgreen; border-radius: 50px; margin: 7px">@generatedCapstone?.Databases</MudText>
+                            <MudText Style="height: 20px; min-width: 120px; max-width: 100%; font-size: 15px; font-weight: bolder; text-align: center; background-color: forestgreen; border-radius: 50px; margin: 7px">@generatedCapstone?.Frameworks</MudText>
+                        </MudContainer>
+                    </MudContainer>
+
+                    <MudContainer Class="mt-10 ms-8">
+                        <MudText Typo="Typo.h6" Class="fw-bold">Rate this Capstone Idea</MudText>
+                        <MudRating @bind-SelectedValue="Rating.RatingValue" Size="Size.Large" Class="mt-2 ms-5" />
+                        <MudContainer>
+                            <MudButton OnClick="SubmitRating" Variant="Variant.Outlined" Color="Color.Success" Class="mt-2 ms-4">
+                                Submit Rating
+                            </MudButton>
+                        </MudContainer>
+                    </MudContainer>
+
+                    <MudContainer Class="d-flex justify-content-end mt-5">
+                        <MudButton Class="btn-nextIdea" Style="position: relative; bottom: 40px;" Color="Color.Primary" OnClick="NextIdea">
+                            Next
+                            <MudIcon Icon="@Icons.Material.Filled.NavigateNext" />
+                        </MudButton>
+                    </MudContainer>
+                }
+            </MudPaper>
+        </MudItem>
+    </MudGrid>
+}
