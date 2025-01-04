@@ -1,1 +1,1 @@
-Full and Approve version of Capstone Shared ideas Generator
+Full and Improved version of Capstone Shared ideas Generator
