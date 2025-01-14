@@ -5,7 +5,7 @@ using Microsoft.AspNetCore.Components;
 using MudBlazor;
 using System.Runtime.CompilerServices;
 
-namespace CapstoneIdeaGenerator.Client.Pages.AdminPages.AccountPage
+namespace CapstoneIdeaGenerator.Client.Pages.AdminPages
 {
     public class AccountBase : ComponentBase
     {

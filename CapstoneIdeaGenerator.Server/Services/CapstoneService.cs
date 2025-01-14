@@ -1,10 +1,10 @@
 ﻿using CapstoneIdeaGenerator.Server.Services.Contracts;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
-using CapstoneIdeaGenerator.Server.Entities.Models;
 using CapstoneIdeaGenerator.Server.DbContext;
 using System.Threading.Tasks;
 using System.Collections.Generic;
+using CapstoneIdeaGenerator.Server.Models;
 
 namespace CapstoneIdeaGenerator.Server.Services
 {

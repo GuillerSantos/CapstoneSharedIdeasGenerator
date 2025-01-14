@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace CapstoneIdeaGenerator.Server.Entities.Models
+namespace CapstoneIdeaGenerator.Server.Models
 {
     public class RefreshToken
     {

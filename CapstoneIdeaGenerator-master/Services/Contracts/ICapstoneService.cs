@@ -1,5 +1,4 @@
 ﻿using CapstoneIdeaGenerator.Client.Models.DTOs;
-using CapstoneIdeaGenerator.Client.Pages.AdminPages.CapstonePage;
 
 namespace CapstoneIdeaGenerator.Client.Services.Contracts
 

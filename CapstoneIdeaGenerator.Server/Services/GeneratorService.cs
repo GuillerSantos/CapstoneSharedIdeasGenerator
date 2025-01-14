@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using CapstoneIdeaGenerator.Server.DbContext;
-using CapstoneIdeaGenerator.Server.Entities.Models;
+using CapstoneIdeaGenerator.Server.Models;
 using CapstoneIdeaGenerator.Server.Services.Contracts;
 using Microsoft.AspNetCore.Http.HttpResults;
 using Microsoft.EntityFrameworkCore;

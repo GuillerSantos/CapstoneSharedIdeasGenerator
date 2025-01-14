@@ -3,12 +3,12 @@ using CapstoneIdeaGenerator.Client.Services.Contracts;
 using Microsoft.AspNetCore.Components;
 using MudBlazor;
 
-namespace CapstoneIdeaGenerator.Client.Pages.AdminPages.AdminDashboard
+namespace CapstoneIdeaGenerator.Client.Pages.AdminPages
 {
     public class DashboardBase : ComponentBase
     {
-        [Inject]  IActivityLogsService activityLogsService { get; set; }
-        [Inject]  ISnackbar snackbar { get; set; }
+        [Inject] IActivityLogsService activityLogsService { get; set; }
+        [Inject] ISnackbar snackbar { get; set; }
         [Inject] NavigationManager navigationManager { get; set; }
         [Inject] IActivityLogsService independentActivityLogsService { get; set; }
 

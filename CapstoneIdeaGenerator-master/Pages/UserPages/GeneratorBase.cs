@@ -5,7 +5,7 @@ using Microsoft.AspNetCore.Components;
 using MudBlazor;
 using static System.Runtime.InteropServices.JavaScript.JSType;
 
-namespace CapstoneIdeaGenerator.Client.Pages.UserPages.GeneratorPage
+namespace CapstoneIdeaGenerator.Client.Pages.UserPages
 {
     public class GeneratorBase : ComponentBase
     {

@@ -9,7 +9,7 @@
     "Parameters": [],
     "ReturnTypes": [
       {
-        "Type": "System.Collections.Generic.IEnumerable\u00601[[CapstoneIdeaGenerator.Server.Entities.DTOs.ActivityLogsDTO, CapstoneIdeaGenerator.Server, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]",
+        "Type": "System.Collections.Generic.IEnumerable\u00601[[CapstoneIdeaGenerator.Server.Models.DTOs.ActivityLogsDTO, CapstoneIdeaGenerator.Server, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]",
         "MediaTypes": [
           "text/plain",
           "application/json",
@@ -29,7 +29,7 @@
     "Parameters": [
       {
         "Name": "logs",
-        "Type": "CapstoneIdeaGenerator.Server.Entities.DTOs.ActivityLogsDTO",
+        "Type": "CapstoneIdeaGenerator.Server.Models.DTOs.ActivityLogsDTO",
         "IsRequired": true
       }
     ],
@@ -65,7 +65,7 @@
     "Parameters": [],
     "ReturnTypes": [
       {
-        "Type": "System.Collections.Generic.IEnumerable\u00601[[CapstoneIdeaGenerator.Server.Entities.DTOs.AdminDTO, CapstoneIdeaGenerator.Server, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]",
+        "Type": "System.Collections.Generic.IEnumerable\u00601[[CapstoneIdeaGenerator.Server.Models.DTOs.AdminDTO, CapstoneIdeaGenerator.Server, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]",
         "MediaTypes": [
           "text/plain",
           "application/json",
@@ -85,7 +85,7 @@
     "Parameters": [
       {
         "Name": "request",
-        "Type": "CapstoneIdeaGenerator.Server.Entities.DTOs.AdminForgotPasswordDTO",
+        "Type": "CapstoneIdeaGenerator.Server.Models.DTOs.AdminForgotPasswordDTO",
         "IsRequired": true
       }
     ],
@@ -117,7 +117,7 @@
     "Parameters": [
       {
         "Name": "request",
-        "Type": "CapstoneIdeaGenerator.Server.Entities.DTOs.AdminLoginDTO",
+        "Type": "CapstoneIdeaGenerator.Server.Models.DTOs.AdminLoginDTO",
         "IsRequired": true
       }
     ],
@@ -143,13 +143,13 @@
     "Parameters": [
       {
         "Name": "request",
-        "Type": "CapstoneIdeaGenerator.Server.Entities.DTOs.AdminRegisterDTO",
+        "Type": "CapstoneIdeaGenerator.Server.Models.DTOs.AdminRegisterDTO",
         "IsRequired": true
       }
     ],
     "ReturnTypes": [
       {
-        "Type": "CapstoneIdeaGenerator.Server.Entities.DTOs.AdminDTO",
+        "Type": "CapstoneIdeaGenerator.Server.Models.DTOs.AdminDTO",
         "MediaTypes": [
           "text/plain",
           "application/json",
@@ -185,7 +185,7 @@
     "Parameters": [
       {
         "Name": "request",
-        "Type": "CapstoneIdeaGenerator.Server.Entities.DTOs.ResetPasswordDTO",
+        "Type": "CapstoneIdeaGenerator.Server.Models.DTOs.ResetPasswordDTO",
         "IsRequired": true
       }
     ],
@@ -201,7 +201,7 @@
     "Parameters": [],
     "ReturnTypes": [
       {
-        "Type": "System.Collections.Generic.IEnumerable\u00601[[CapstoneIdeaGenerator.Server.Entities.Models.Capstones, CapstoneIdeaGenerator.Server, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]",
+        "Type": "System.Collections.Generic.IEnumerable\u00601[[CapstoneIdeaGenerator.Server.Models.Capstones, CapstoneIdeaGenerator.Server, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]",
         "MediaTypes": [
           "text/plain",
           "application/json",
@@ -221,7 +221,7 @@
     "Parameters": [
       {
         "Name": "capstones",
-        "Type": "CapstoneIdeaGenerator.Server.Entities.Models.Capstones",
+        "Type": "CapstoneIdeaGenerator.Server.Models.Capstones",
         "IsRequired": true
       }
     ],
@@ -243,7 +243,7 @@
     ],
     "ReturnTypes": [
       {
-        "Type": "CapstoneIdeaGenerator.Server.Entities.Models.Capstones",
+        "Type": "CapstoneIdeaGenerator.Server.Models.Capstones",
         "MediaTypes": [
           "text/plain",
           "application/json",
@@ -268,7 +268,7 @@
       },
       {
         "Name": "capstones",
-        "Type": "CapstoneIdeaGenerator.Server.Entities.Models.Capstones",
+        "Type": "CapstoneIdeaGenerator.Server.Models.Capstones",
         "IsRequired": true
       }
     ],
@@ -347,7 +347,7 @@
     ],
     "ReturnTypes": [
       {
-        "Type": "CapstoneIdeaGenerator.Server.Entities.Models.Capstones",
+        "Type": "CapstoneIdeaGenerator.Server.Models.Capstones",
         "MediaTypes": [
           "text/plain",
           "application/json",
@@ -407,7 +407,7 @@
     "Parameters": [
       {
         "Name": "ratingRequest",
-        "Type": "CapstoneIdeaGenerator.Server.Entities.DTOs.RatingRequestDTO",
+        "Type": "CapstoneIdeaGenerator.Server.Models.DTOs.RatingRequestDTO",
         "IsRequired": true
       }
     ],

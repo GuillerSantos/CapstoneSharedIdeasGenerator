@@ -1,6 +1,5 @@
 ﻿using Microsoft.EntityFrameworkCore;
-using CapstoneIdeaGenerator.Server.Entities.AuthenticationModels;
-using CapstoneIdeaGenerator.Server.Entities.Models;
+using CapstoneIdeaGenerator.Server.Models;
 
 namespace CapstoneIdeaGenerator.Server.DbContext
 {

@@ -1,7 +1,7 @@
 ﻿using System.Collections.Generic;
 using System.Threading.Tasks;
-using CapstoneIdeaGenerator.Server.Entities.DTOs;
-using CapstoneIdeaGenerator.Server.Entities.Models;
+using CapstoneIdeaGenerator.Server.Models;
+using CapstoneIdeaGenerator.Server.Models.DTOs;
 
 namespace CapstoneIdeaGenerator.Server.Services.Contracts
 {

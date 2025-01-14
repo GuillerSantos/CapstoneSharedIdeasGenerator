@@ -1,9 +1,8 @@
-﻿using CapstoneIdeaGenerator.Server.Entities.AuthenticationModels;
-using System;
+﻿using System;
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 
-namespace CapstoneIdeaGenerator.Server.Entities.Models
+namespace CapstoneIdeaGenerator.Server.Models
 {
     public class Ratings
     {

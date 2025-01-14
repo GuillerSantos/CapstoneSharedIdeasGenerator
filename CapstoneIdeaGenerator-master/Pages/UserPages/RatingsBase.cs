@@ -4,7 +4,7 @@ using Microsoft.AspNetCore.Components;
 using MudBlazor;
 using static System.Net.WebRequestMethods;
 
-namespace CapstoneIdeaGenerator.Client.Pages.UserPages.RatingsPage
+namespace CapstoneIdeaGenerator.Client.Pages.UserPages
 {
     public class RatingsBase : ComponentBase
     {

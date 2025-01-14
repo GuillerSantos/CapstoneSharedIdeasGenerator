@@ -5,7 +5,7 @@ using MudBlazor;
 using CapstoneIdeaGenerator.Client.Components;
 using Microsoft.AspNetCore.Components.Authorization;
 
-namespace CapstoneIdeaGenerator.Client.Pages.AdminPages.CapstonePage
+namespace CapstoneIdeaGenerator.Client.Pages.AdminPages
 {
     public class CapstoneBase : ComponentBase
     {

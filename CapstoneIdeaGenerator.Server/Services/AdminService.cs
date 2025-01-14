@@ -1,6 +1,4 @@
-﻿using CapstoneIdeaGenerator.Server.Entities.AuthenticationModels;
-using CapstoneIdeaGenerator.Server.Entities.DTOs;
-using CapstoneIdeaGenerator.Server.Services.Contracts;
+﻿using CapstoneIdeaGenerator.Server.Services.Contracts;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.IdentityModel.Tokens;
 using System.IdentityModel.Tokens.Jwt;
@@ -13,6 +11,8 @@ using System.Collections.Generic;
 using Microsoft.Extensions.Configuration;
 using System.Linq;
 using System;
+using CapstoneIdeaGenerator.Server.Models;
+using CapstoneIdeaGenerator.Server.Models.DTOs;
 
 namespace CapstoneIdeaGenerator.Server.Services
 {

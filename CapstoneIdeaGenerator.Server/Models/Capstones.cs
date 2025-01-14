@@ -1,12 +1,11 @@
-﻿using CapstoneIdeaGenerator.Server.Entities.Models;
-using Microsoft.EntityFrameworkCore;
+﻿using Microsoft.EntityFrameworkCore;
 using Swashbuckle.AspNetCore.Annotations;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.Runtime.Serialization;
 using System.Text.Json.Serialization;
 
-namespace CapstoneIdeaGenerator.Server.Entities.Models
+namespace CapstoneIdeaGenerator.Server.Models
 {
     public class Capstones
     {

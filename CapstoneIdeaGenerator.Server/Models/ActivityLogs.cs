@@ -1,7 +1,6 @@
 ﻿using System;
-using CapstoneIdeaGenerator.Server.Entities.AuthenticationModels;
 
-namespace CapstoneIdeaGenerator.Server.Entities.Models
+namespace CapstoneIdeaGenerator.Server.Models
 {
     public class ActivityLogs
     {

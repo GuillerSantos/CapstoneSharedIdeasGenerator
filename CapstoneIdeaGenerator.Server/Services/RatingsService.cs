@@ -3,8 +3,8 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using CapstoneIdeaGenerator.Server.DbContext;
-using CapstoneIdeaGenerator.Server.Entities.DTOs;
-using CapstoneIdeaGenerator.Server.Entities.Models;
+using CapstoneIdeaGenerator.Server.Models;
+using CapstoneIdeaGenerator.Server.Models.DTOs;
 using CapstoneIdeaGenerator.Server.Services.Contracts;
 using Microsoft.EntityFrameworkCore;
 

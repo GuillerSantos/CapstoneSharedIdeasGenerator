@@ -1,9 +1,8 @@
-﻿using CapstoneIdeaGenerator.Server.Entities.Models;
-using System;
+﻿using System;
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 
-namespace CapstoneIdeaGenerator.Server.Entities.AuthenticationModels
+namespace CapstoneIdeaGenerator.Server.Models
 {
     public class Admins
     {

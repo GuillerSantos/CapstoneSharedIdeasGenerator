@@ -4,7 +4,7 @@ using CapstoneIdeaGenerator.Client.Shared;
 using Microsoft.AspNetCore.Components;
 using MudBlazor;
 
-namespace CapstoneIdeaGenerator.Client.Pages.AdminPages.AdminRatingPage
+namespace CapstoneIdeaGenerator.Client.Pages.AdminPages
 {
     public class AdminRatingsBase : ComponentBase
     {

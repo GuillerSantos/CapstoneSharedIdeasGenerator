@@ -1,7 +1,7 @@
 ﻿using System;
 using System.ComponentModel.DataAnnotations;
 
-namespace CapstoneIdeaGenerator.Server.Entities.DTOs
+namespace CapstoneIdeaGenerator.Server.Models.DTOs
 {
     public class AdminRegisterDTO
     {

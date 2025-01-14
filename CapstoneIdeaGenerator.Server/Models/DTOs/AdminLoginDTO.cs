@@ -1,4 +1,4 @@
-﻿namespace CapstoneIdeaGenerator.Server.Entities.DTOs
+﻿namespace CapstoneIdeaGenerator.Server.Models.DTOs
 {
     public class AdminLoginDTO
     {
