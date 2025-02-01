@@ -24,9 +24,6 @@ builder.Services.AddAuthorizationCore();
 builder.Services.AddBlazoredLocalStorage();
 
 
-
-builder.Services.AddScoped(sp => new HttpClient { BaseAddress = new Uri("") });
-
 builder.Services.AddOidcAuthentication(options =>
 {
     // Configure your authentication provider options here
